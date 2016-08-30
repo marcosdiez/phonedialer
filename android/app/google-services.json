@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "883138164371",
+    "firebase_url": "https://windows-phone-dialer.firebaseio.com",
+    "project_id": "windows-phone-dialer",
+    "storage_bucket": "windows-phone-dialer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883138164371:android:26fc66b07ce8f111",
+        "android_client_info": {
+          "package_name": "com.marcosdiez.windowsphonedialer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883138164371-ipjf6geaou58d02i9gbf4dhngpf1nda0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marcosdiez.windowsphonedialer",
+            "certificate_hash": "E2DBB46B54FA47846370134DABDEAEA2A8E99D1D"
+          }
+        },
+        {
+          "client_id": "883138164371-4nomo3umurledcimfahicnvgsgmgnd8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtVcurqkIfgx9LCgxnHZMRys-vHrb9zhM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883138164371-4nomo3umurledcimfahicnvgsgmgnd8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
