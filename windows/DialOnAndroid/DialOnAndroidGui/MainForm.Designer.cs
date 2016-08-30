@@ -46,12 +46,13 @@ namespace DialOnAndroidGui
             this.textBoxGoogleAndroidKey = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxDial
             // 
-            this.textBoxDial.Location = new System.Drawing.Point(39, 62);
+            this.textBoxDial.Location = new System.Drawing.Point(6, 15);
             this.textBoxDial.Name = "textBoxDial";
             this.textBoxDial.Size = new System.Drawing.Size(157, 20);
             this.textBoxDial.TabIndex = 0;
@@ -59,127 +60,127 @@ namespace DialOnAndroidGui
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 88);
+            this.button1.Location = new System.Drawing.Point(6, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 3;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(121, 88);
+            this.button2.Location = new System.Drawing.Point(88, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
+            this.button2.TabIndex = 4;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(121, 117);
+            this.button5.Location = new System.Drawing.Point(88, 70);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 6;
+            this.button5.TabIndex = 7;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(39, 117);
+            this.button4.Location = new System.Drawing.Point(6, 70);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
+            this.button4.TabIndex = 6;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(121, 146);
+            this.button8.Location = new System.Drawing.Point(88, 99);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 9;
+            this.button8.TabIndex = 10;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(39, 146);
+            this.button7.Location = new System.Drawing.Point(6, 99);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 8;
+            this.button7.TabIndex = 9;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button0
             // 
-            this.button0.Location = new System.Drawing.Point(121, 175);
+            this.button0.Location = new System.Drawing.Point(88, 128);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(75, 23);
-            this.button0.TabIndex = 12;
+            this.button0.TabIndex = 13;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // buttonStar
             // 
-            this.buttonStar.Location = new System.Drawing.Point(39, 175);
+            this.buttonStar.Location = new System.Drawing.Point(6, 128);
             this.buttonStar.Name = "buttonStar";
             this.buttonStar.Size = new System.Drawing.Size(75, 23);
-            this.buttonStar.TabIndex = 11;
+            this.buttonStar.TabIndex = 12;
             this.buttonStar.Text = "*";
             this.buttonStar.UseVisualStyleBackColor = true;
             this.buttonStar.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // buttonPound
             // 
-            this.buttonPound.Location = new System.Drawing.Point(202, 175);
+            this.buttonPound.Location = new System.Drawing.Point(169, 128);
             this.buttonPound.Name = "buttonPound";
             this.buttonPound.Size = new System.Drawing.Size(75, 23);
-            this.buttonPound.TabIndex = 13;
+            this.buttonPound.TabIndex = 14;
             this.buttonPound.Text = "#";
             this.buttonPound.UseVisualStyleBackColor = true;
             this.buttonPound.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(202, 146);
+            this.button9.Location = new System.Drawing.Point(169, 99);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 10;
+            this.button9.TabIndex = 11;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(202, 117);
+            this.button6.Location = new System.Drawing.Point(169, 70);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 7;
+            this.button6.TabIndex = 8;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(202, 88);
+            this.button3.Location = new System.Drawing.Point(169, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
+            this.button3.TabIndex = 5;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.ButtonClicker);
             // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(202, 59);
+            this.buttonGo.Location = new System.Drawing.Point(169, 12);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(33, 23);
             this.buttonGo.TabIndex = 1;
@@ -189,43 +190,53 @@ namespace DialOnAndroidGui
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(241, 59);
+            this.buttonClear.Location = new System.Drawing.Point(208, 12);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(33, 23);
-            this.buttonClear.TabIndex = 14;
+            this.buttonClear.TabIndex = 2;
             this.buttonClear.Text = "C";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // textBoxGoogleAndroidKey
             // 
-            this.textBoxGoogleAndroidKey.Location = new System.Drawing.Point(345, 42);
+            this.textBoxGoogleAndroidKey.Location = new System.Drawing.Point(250, 41);
             this.textBoxGoogleAndroidKey.Multiline = true;
             this.textBoxGoogleAndroidKey.Name = "textBoxGoogleAndroidKey";
-            this.textBoxGoogleAndroidKey.Size = new System.Drawing.Size(237, 186);
+            this.textBoxGoogleAndroidKey.Size = new System.Drawing.Size(237, 110);
             this.textBoxGoogleAndroidKey.TabIndex = 15;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 242);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 158);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(605, 19);
+            this.statusStrip1.Size = new System.Drawing.Size(491, 22);
             this.statusStrip1.TabIndex = 16;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 14);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(476, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Google Cloud Device ID";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 261);
+            this.ClientSize = new System.Drawing.Size(491, 180);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.textBoxGoogleAndroidKey);
             this.Controls.Add(this.buttonClear);
@@ -243,6 +254,8 @@ namespace DialOnAndroidGui
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxDial);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Dial on Android";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -273,6 +286,7 @@ namespace DialOnAndroidGui
         private System.Windows.Forms.TextBox textBoxGoogleAndroidKey;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
