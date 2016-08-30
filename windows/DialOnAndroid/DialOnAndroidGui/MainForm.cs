@@ -63,8 +63,7 @@ namespace DialOnAndroidGui
             msg = String.Format("Elapsed: {0} seconds. [{1}]",
                 elapsedMs / 1000,
                 msg
-                );
-
+                ).Replace("\n", "").Replace("\r", "").Trim();
             toolStripStatusLabel1.Text = msg;
         }
 
