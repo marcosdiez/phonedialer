@@ -11,7 +11,6 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIIDService";
-    private static final String FRIENDLY_ENGAGE_TOPIC = "friendly_engage";
 
 
 

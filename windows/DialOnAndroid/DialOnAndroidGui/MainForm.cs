@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,63 @@ namespace DialOnAndroidGui
                 textBoxGoogleAndroidKey.Text = googleDeviceId.ToString();
             }
             textBoxDial.Focus();
+
+            textBoxDial.Text = processCommandLineArguments();
+
+        }
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == NativeMethods.WM_SHOWME){
+                ShowMe();
+                textBoxDial.Text = "";
+            }
+            else {
+                if (m.Msg == NativeMethods.WM_CHAR) {
+
+                    textBoxDial.Text += (char)m.LParam; // this is probably wrong.
+                }
+            }
+
+            base.WndProc(ref m);
+        }
+        private void ShowMe()
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+            // get our current "TopMost" value (ours will always be false though)
+            var top = TopMost;
+            // make our form jump to the top of everything
+            TopMost = true;
+            // set it back to whatever it was
+            TopMost = top;
+        }
+
+
+        public static string processCommandLineArguments()
+        {
+            var output = "";
+            var first = true;
+            var second = true;
+            var args = Environment.GetCommandLineArgs();
+            foreach (var arg in args)
+            {
+                if (first)
+                {
+                    first = false;
+                    continue;
+                }
+                if (second)
+                {
+                    second = false;
+                }
+                else { output += " "; }
+
+                output += arg;
+            }
+            return output;
+          
         }
 
         private void ButtonClicker(object sender, EventArgs e)
@@ -39,6 +97,7 @@ namespace DialOnAndroidGui
         {
             textBoxDial.Text = "";
             toolStripStatusLabel1.Text = "";
+            toolStripStatusLabel1.ToolTipText = "";
             textBoxDial.Focus();
         }
 
@@ -65,6 +124,7 @@ namespace DialOnAndroidGui
                 msg
                 ).Replace("\n", "").Replace("\r", "").Trim();
             toolStripStatusLabel1.Text = msg;
+            toolStripStatusLabel1.ToolTipText = msg;
         }
 
         private void textBoxDial_KeyDown_1(object sender, KeyEventArgs e)
