@@ -134,5 +134,70 @@ namespace DialOnAndroidGui
                 buttonGo_Click(this, new EventArgs());
             }
         }
+
+
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                registerProtocol("tel2");
+                registerProtocol("tel");
+                registerProtocol("callto");
+
+                MessageBox.Show("Registry Updated");
+            }
+            catch (System.UnauthorizedAccessException)
+            {
+                MessageBox.Show("No Permission. Please run me as Administrator.");
+            }
+        }
+
+        private static void registerProtocol(string myProtocol)
+        {
+
+            var rootKey = CreateOrOpenSubKey(Microsoft.Win32.Registry.ClassesRoot, myProtocol);
+
+            rootKey.SetValue("", "URL:" + myProtocol + " Protocol", Microsoft.Win32.RegistryValueKind.String);
+            rootKey.SetValue("URL Protocol", "", Microsoft.Win32.RegistryValueKind.String);
+
+            var defaultIconKey = CreateOrOpenSubKey(rootKey, "DefaultIcon");
+            defaultIconKey.SetValue("", System.Reflection.Assembly.GetEntryAssembly().Location + ",0");
+
+            var shellKey = CreateOrOpenSubKey(rootKey, "shell");
+            var openKey = CreateOrOpenSubKey(shellKey, "open");
+            var commandKey = CreateOrOpenSubKey(openKey, "command");
+
+            commandKey.SetValue("", String.Format("\"{0}\" \"%1\"", System.Reflection.Assembly.GetEntryAssembly().Location), Microsoft.Win32.RegistryValueKind.String);
+            commandKey.Close();
+            openKey.Close();
+            shellKey.Close();
+            defaultIconKey.Close();
+            rootKey.Close();
+
+        }
+
+        private static Microsoft.Win32.RegistryKey CreateOrOpenSubKey(Microsoft.Win32.RegistryKey mainKey, string keyName)
+        {
+            var subKey = mainKey.OpenSubKey(keyName, true);
+            if (subKey == null)
+            {
+                subKey = mainKey.CreateSubKey(keyName);
+            }
+
+            return subKey;
+        }
+
+        private static void show(object key)
+        {
+            if (key == null)
+            {
+                MessageBox.Show("null");
+            }
+            else
+            {
+                MessageBox.Show(key.ToString());
+            }
+        }
     }
 }

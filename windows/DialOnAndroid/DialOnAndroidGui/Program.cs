@@ -22,6 +22,7 @@ namespace DialOnAndroidGui
         {
             if (mutex.WaitOne(TimeSpan.Zero, true))
             {
+
                 LoadApp();
             }
             else
