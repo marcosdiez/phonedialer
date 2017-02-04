@@ -28,6 +28,7 @@ namespace DialOnAndroidGui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.textBoxDial = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@ namespace DialOnAndroidGui
             // 
             this.textBoxDial.Location = new System.Drawing.Point(6, 15);
             this.textBoxDial.Name = "textBoxDial";
-            this.textBoxDial.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDial.Size = new System.Drawing.Size(400, 20);
             this.textBoxDial.TabIndex = 0;
             this.textBoxDial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxDial_KeyDown_1);
             // 
@@ -181,7 +182,7 @@ namespace DialOnAndroidGui
             // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(169, 12);
+            this.buttonGo.Location = new System.Drawing.Point(412, 15);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(33, 23);
             this.buttonGo.TabIndex = 1;
@@ -191,7 +192,7 @@ namespace DialOnAndroidGui
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(208, 12);
+            this.buttonClear.Location = new System.Drawing.Point(454, 15);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(33, 23);
             this.buttonClear.TabIndex = 2;
@@ -201,32 +202,33 @@ namespace DialOnAndroidGui
             // 
             // textBoxGoogleAndroidKey
             // 
-            this.textBoxGoogleAndroidKey.Location = new System.Drawing.Point(250, 41);
+            this.textBoxGoogleAndroidKey.Location = new System.Drawing.Point(250, 70);
             this.textBoxGoogleAndroidKey.Multiline = true;
             this.textBoxGoogleAndroidKey.Name = "textBoxGoogleAndroidKey";
-            this.textBoxGoogleAndroidKey.Size = new System.Drawing.Size(237, 110);
+            this.textBoxGoogleAndroidKey.Size = new System.Drawing.Size(237, 81);
             this.textBoxGoogleAndroidKey.TabIndex = 15;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 158);
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 175);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(491, 22);
+            this.statusStrip1.ShowItemToolTips = true;
+            this.statusStrip1.Size = new System.Drawing.Size(491, 5);
             this.statusStrip1.TabIndex = 16;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(476, 17);
-            this.toolStripStatusLabel1.Spring = true;
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 18);
+            this.label1.Location = new System.Drawing.Point(250, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 17;
@@ -234,7 +236,7 @@ namespace DialOnAndroidGui
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(412, 12);
+            this.button10.Location = new System.Drawing.Point(412, 41);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 18;
@@ -267,6 +269,7 @@ namespace DialOnAndroidGui
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxDial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Dial on Android";

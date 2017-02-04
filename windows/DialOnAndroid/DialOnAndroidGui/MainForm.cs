@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,25 +28,48 @@ namespace DialOnAndroidGui
                 textBoxGoogleAndroidKey.Text = googleDeviceId.ToString();
             }
             textBoxDial.Focus();
-
             textBoxDial.Text = processCommandLineArguments();
+            DialIfThereIsANumber();
 
         }
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == NativeMethods.WM_SHOWME){
+            if (m.Msg == NativeMethods.WM_SHOWME)
+            {
                 ShowMe();
                 textBoxDial.Text = "";
             }
-            else {
-                if (m.Msg == NativeMethods.WM_CHAR) {
+            else
+            {
+                if (m.Msg == NativeMethods.WM_CHAR)
+                {
 
                     textBoxDial.Text += (char)m.LParam; // this is probably wrong.
+                }
+                else
+                {
+                    if (m.Msg == NativeMethods.WM_DIAL)
+                    {
+                        Focus();
+                        DialIfThereIsANumber();
+
+                    }
                 }
             }
 
             base.WndProc(ref m);
         }
+
+        private void DialIfThereIsANumber()
+        {
+            if (textBoxDial.Text.Length > 0)
+            {
+                textBoxDial.Focus();
+                textBoxDial.SelectionStart = textBoxDial.Text.Length;
+                var i_dont_care = Dial();
+            }
+        }
+
         private void ShowMe()
         {
             if (WindowState == FormWindowState.Minimized)
@@ -74,14 +98,25 @@ namespace DialOnAndroidGui
                     first = false;
                     continue;
                 }
-                if (second)
+                else
                 {
-                    second = false;
-                }
-                else { output += " "; }
+                    if (second)
+                    {
+                        second = false;
+                    }
+                    else {
+                        output += " ";
+                    }
 
-                output += arg;
+                    output += arg;
+                }
             }
+
+            foreach(var protocol in protocols)
+            {
+                output = output.Replace(protocol + ":", "");
+            }
+
             return output;
           
         }
@@ -105,6 +140,10 @@ namespace DialOnAndroidGui
 
         private async void buttonGo_Click(object sender, EventArgs e)
         {
+            await Dial();
+        }
+
+        private async Task Dial() { 
             toolStripStatusLabel1.Text = "Sending data to Android ...";
             textBoxDial.Focus();
             if (Properties.Settings.Default["googleDeviceId"].ToString() != textBoxGoogleAndroidKey.Text)
@@ -112,7 +151,6 @@ namespace DialOnAndroidGui
                 Properties.Settings.Default["googleDeviceId"] = textBoxGoogleAndroidKey.Text;
                 Properties.Settings.Default.Save();
             }
-
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
             var msg = await DialOnAndroid.SendNotificationFromFirebaseCloud(textBoxGoogleAndroidKey.Text.Trim(), textBoxDial.Text);
@@ -135,15 +173,16 @@ namespace DialOnAndroidGui
             }
         }
 
-
+        private static string[] protocols = { "tel2", "tel", "callto" };
 
         private void button10_Click(object sender, EventArgs e)
         {
             try
             {
-                registerProtocol("tel2");
-                registerProtocol("tel");
-                registerProtocol("callto");
+                foreach(var protocol in protocols)
+                {
+                    registerProtocol(protocol);
+                }
 
                 MessageBox.Show("Registry Updated");
             }

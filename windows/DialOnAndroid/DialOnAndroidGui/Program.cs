@@ -51,6 +51,13 @@ namespace DialOnAndroidGui
                   theIntPtr
                   );
             }
+
+            NativeMethods.PostMessage(
+            (IntPtr)NativeMethods.HWND_BROADCAST,
+            NativeMethods.WM_DIAL,
+            IntPtr.Zero,
+            IntPtr.Zero);
+
         }
 
         private static void LoadApp()

@@ -47,11 +47,21 @@ namespace DialOnAndroidGui
 
         private static string getJsonData(string deviceId, string number)
         {
+            /*
+              the fact that I sent part of the GoogleFireBaseId token looks ridiculous but it is not.
+              I want to open source this app and include the google cloud certificates as well
+              That means anybody would be able to send a broadcast message to all devices and use it
+              as a war dialer.
+
+              So this forces my app only to receive direct messages and not broadcasts :)
+            */
+
             var data = new
             {
                 to = deviceId,
                 data = new
                 {
+                    auth = deviceId.Substring(0, 16),  
                     dial = number  // "+5511971407657"
                 }
             };
