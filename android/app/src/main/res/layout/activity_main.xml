@@ -36,5 +36,11 @@
         android:id="@+id/button_share"
         android:layout_gravity="center_horizontal"/>
 
+    <Switch
+        android:text="Dial Automatically"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch_auto_dial"/>
+
 
 </LinearLayout>

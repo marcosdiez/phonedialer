@@ -3,6 +3,7 @@ package com.marcosdiez.windowsphonedialer;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -23,10 +24,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private void dial(String number) {
         Uri numberUri = Uri.parse("tel:" + number);
-        String action = BuildConfig.DEBUG ? Intent.ACTION_DIAL : Intent.ACTION_CALL;
+        String action = Settings.getAutoDial(getBaseContext()) ? Intent.ACTION_CALL : Intent.ACTION_DIAL;
         Intent callIntent = new Intent(action, numberUri);
         callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getApplicationContext().startActivity(callIntent);
+        try {
+            getApplicationContext().startActivity(callIntent);
+        } catch (SecurityException e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT);
+        }
+    }
+
+    private void openUrl(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url.trim()));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(Intent.createChooser(intent, url).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     @Override
@@ -38,7 +50,22 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 remoteMessage.getNotification());
         Map<String, String> data = remoteMessage.getData();
         logMsg("FCM Data Message: " + data);
+
+        if (!Settings.authValid(getBaseContext(), data.get("auth"))) {
+            String msg = "Invalid Auth Token";
+            Log.d(TAG, msg);
+            return;
+        }
+
         String numberToDial = data.get("dial");
+        if (numberToDial == null) {
+            return;
+        }
+        numberToDial = numberToDial.trim();
+        if (numberToDial.startsWith("http://") || numberToDial.startsWith("https://")) {
+            openUrl(numberToDial);
+            return;
+        }
         dial(numberToDial);
     }
 }
